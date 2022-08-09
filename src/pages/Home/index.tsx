@@ -14,10 +14,14 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h4>{total - remaining + 1}/{total}</h4>
-      <h1>Select translation for <strong>“{source.origin}”</strong></h1>
-      <Keypad {...source} onDone={action.shift} />
-      {remaining > 1 && <button onClick={action.push}>Skip</button>}
+      <header>
+        <h4 className="home__score"><em>You got </em>{total - remaining}/{total}</h4>
+      </header>
+      <main>
+        <h1 className="home__question">Find Spanish word for <span>{source.origin}</span></h1>
+        <Keypad {...source} onDone={action.shift} />
+        {remaining > 1 && <button onClick={action.push}>Skip</button>}
+      </main>
     </div>
   )
 }
