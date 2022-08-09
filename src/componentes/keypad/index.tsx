@@ -37,7 +37,7 @@ const reducer = (state: number[][], action: KeypadReducerAction) => {
   }
 }
 
-const Keypad = ({ grid, map, onDone }: KeypadProps) => {
+export const Keypad = ({ grid, map, onDone }: KeypadProps) => {
   const [trace, dispatch] = useReducer(reducer, [])
   const columns = useMemo(() => {
     const [first] = grid

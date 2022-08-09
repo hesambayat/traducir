@@ -46,7 +46,7 @@ export const reducer = (state: SourceParsed[], action: { type: string }) => {
   return state
 }
 
-const useTranslationSource = (data: SourceRaw[]): [SourceParsed, Actions, Payload] => {
+export const useTranslationSource = (data: SourceRaw[]): [SourceParsed, Actions, Payload] => {
   const source = useMemo(() => data.map(parse), [data])
   const [words, dispatch] = useReducer(reducer, source)
 

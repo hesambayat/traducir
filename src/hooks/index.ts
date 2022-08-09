@@ -1,5 +1,1 @@
-import useTranslationSource from './useTranslationSource'
-
-export {
-  useTranslationSource
-}
+export * from './useTranslationSource'

@@ -1,8 +1,8 @@
-import Keypad from '../../componentes/keypad'
+import { Button, Keypad } from '../../componentes'
 import { useTranslationSource } from '../../hooks'
 import words from '../../words.json'
 
-const Home = () => {
+export const Home = () => {
   const [source, action, { remaining, total }] = useTranslationSource(words)
   if (!source) {
     return (
@@ -21,7 +21,7 @@ const Home = () => {
         <h1 className="home__question">Find Spanish word for <span>{source.origin}</span></h1>
         <Keypad {...source} onDone={action.shift} />
         <div className="home__actions">
-          {remaining > 1 && <button onClick={action.push}>Skip</button>}
+          <Button label="Skip &#10230;" disabled={remaining < 2} onClick={action.push} />
         </div>
       </main>
     </div>

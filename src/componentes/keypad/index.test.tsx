@@ -3,7 +3,7 @@ import { parse } from '../../hooks/useTranslationSource'
 import * as mock from '../../mock'
 import Keypad from './index'
 
-describe('component keypad', () => {
+describe('component Keypad', () => {
   const [source] = mock.data.map(parse)
   render(<Keypad {...source} />)
   const keys = screen.getAllByTestId('key')

@@ -6,7 +6,7 @@ interface KeyProps {
   onMove?: () => void;
 }
 
-const Key = ({ label, selected, onStart, onEnd, onMove }: KeyProps) => 
+export const Key = ({ label, selected, onStart, onEnd, onMove }: KeyProps) => 
   <button
     data-testid="key"
     className={selected ? 'key key--selected' : 'key'}
