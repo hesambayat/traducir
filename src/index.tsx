@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
+import { ModalProvider } from './context/modal'
 import { Home } from './pages'
 import './styles'
 
@@ -9,7 +10,9 @@ const root = ReactDOM.createRoot(
 )
 root.render(
   <React.StrictMode>
-    <Home />
+    <ModalProvider>
+      <Home />
+    </ModalProvider>
   </React.StrictMode>
 )
 

@@ -1,8 +1,10 @@
 import { Button, Keypad } from '../../componentes'
 import { useTranslationSource } from '../../hooks'
+import { useModal } from '../../context/modal'
 import words from '../../words.json'
 
 export const Home = () => {
+  const { setModal } = useModal()
   const [source, action, { remaining, total }] = useTranslationSource(words)
   if (!source) {
     return (
@@ -15,7 +17,9 @@ export const Home = () => {
   return (
     <div className="home">
       <header>
-        <button className="home__score"><span>&#10033;</span> You got {total - remaining}/{total}</button>
+        <button className="home__score" onClick={setModal}>
+          <span>?</span> You got {total - remaining}/{total}
+        </button>
       </header>
       <main>
         <h1 className="home__question">Find Spanish word for <span>{source.origin}</span></h1>

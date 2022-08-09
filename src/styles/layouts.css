@@ -63,3 +63,36 @@
 .home__actions {
   text-align: right;
 }
+
+/* Modal */
+.modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  overflow: auto;
+  z-index: 99;
+}
+
+.modal__inner {
+  width: 80rem;
+  max-width: 100%;
+  padding: 5% 10%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.modal__inner h2 {
+  font-size: 5rem;
+}
+
+.modal__inner p {
+  font-size: 2rem;
+}
+
+.modal__inner ol {
+  font-size: 1rem;
+  font-style: italic;
+}

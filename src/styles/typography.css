@@ -18,7 +18,6 @@ button {
 b,
 strong {
   font-weight: var(--font-weight-black);
-  font-style: italic;
 }
 
 h1,
