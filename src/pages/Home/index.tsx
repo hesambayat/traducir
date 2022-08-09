@@ -3,7 +3,7 @@ import { useTranslationSource } from '../../hooks'
 import words from '../../words.json'
 
 const Home = () => {
-  const [source, action, { remaining }] = useTranslationSource(words)
+  const [source, action, { remaining, total }] = useTranslationSource(words)
   if (!source) {
     return (
       <div className="home">
@@ -14,7 +14,8 @@ const Home = () => {
 
   return (
     <div className="home">
-      <h1>{source.origin}</h1>
+      <h4>{total - remaining + 1}/{total}</h4>
+      <h1>Select translation for <strong>“{source.origin}”</strong></h1>
       <Keypad {...source} onDone={action.shift} />
       {remaining > 1 && <button onClick={action.push}>Skip</button>}
     </div>

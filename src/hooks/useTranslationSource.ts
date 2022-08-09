@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useMemo, useReducer } from 'react'
 import { SourceRaw, SourceParsed } from '../types'
 
 export enum Action {
@@ -13,6 +13,7 @@ interface Actions {
 
 interface Payload {
   remaining: number
+  total: number
 }
 
 const normalize = (locations: string): SourceParsed['map'] => {
@@ -46,7 +47,8 @@ export const reducer = (state: SourceParsed[], action: { type: string }) => {
 }
 
 const useTranslationSource = (data: SourceRaw[]): [SourceParsed, Actions, Payload] => {
-  const [words, dispatch] = useReducer(reducer, data.map(parse))
+  const source = useMemo(() => data.map(parse), [data])
+  const [words, dispatch] = useReducer(reducer, source)
 
   return [
     words[0], 
@@ -54,7 +56,7 @@ const useTranslationSource = (data: SourceRaw[]): [SourceParsed, Actions, Payloa
       push: () => dispatch({ type: Action.PUSH }),
       shift: () => dispatch({ type: Action.SHIFT }) 
     }, 
-    { remaining: words.length }
+    { remaining: words.length, total: source.length }
   ]
 }
 
