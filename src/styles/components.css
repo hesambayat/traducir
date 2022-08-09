@@ -10,7 +10,7 @@
   background: none;
   appearance: none;
   user-select: none;
-  color: var(--color-body);
+  color: inherit;
   will-change: color;
 }
 

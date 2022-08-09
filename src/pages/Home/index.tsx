@@ -15,7 +15,7 @@ export const Home = () => {
   return (
     <div className="home">
       <header>
-        <h4 className="home__score">You got {total - remaining}/{total}</h4>
+        <button className="home__score"><span>&#10033;</span> You got {total - remaining}/{total}</button>
       </header>
       <main>
         <h1 className="home__question">Find Spanish word for <span>{source.origin}</span></h1>
