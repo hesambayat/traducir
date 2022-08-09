@@ -1,0 +1,24 @@
+/* Key */
+.key {
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.25em;
+  font-weight: var(--font-weight-bold);
+  padding: 0;
+  line-height: 1;
+  border: none;
+  background-color: #e0e3e4;
+  text-transform: uppercase;
+  appearance: none;
+  will-change: background-color, color;
+}
+
+.key:hover {
+  background-color: #c3c9cc;
+}
+
+.key--selected,
+.key--selected:hover {
+  background-color: #515e6e;
+  color: #f1f3f5;
+}
