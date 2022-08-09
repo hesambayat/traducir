@@ -1,8 +1,9 @@
 /* Key */
 .key {
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.25em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
   font-weight: var(--font-weight-bold);
   padding: 0;
   line-height: 1;
@@ -23,4 +24,14 @@
 .key--selected:hover {
   background-color: var(--color-primary);
   color: var(--color-body);
+}
+
+/* Keypad */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(var(--grid, 8), 1fr);
+  width: min(50vw, 60vh);
+  height: min(50vw, 60vh);
+  background-color: var(--color-body);
+  border: 2rem solid hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) / 2));
 }
