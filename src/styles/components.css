@@ -1,3 +1,23 @@
+/* Button */
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  border: none;
+  background: none;
+  appearance: none;
+  user-select: none;
+  color: var(--color-body);
+  will-change: color;
+}
+
+.button:hover {
+  color: var(--color-body-alt);
+}
+
 /* Key */
 .key {
   display: inline-flex;
@@ -17,7 +37,7 @@
 }
 
 .key:hover {
-  background-color: hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) * 2));
+  background-color: var(--color-body-alt);
 }
 
 .key--selected,
@@ -33,5 +53,5 @@
   width: min(50vw, 60vh);
   height: min(50vw, 60vh);
   background-color: var(--color-body);
-  border: 2rem solid hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) / 2));
+  border: 1rem solid hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) / 2));
 }
