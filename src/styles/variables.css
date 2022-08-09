@@ -22,8 +22,8 @@
 
 /* Typography */
 :root {
-  --font-family: "Space Grotesk", -apple-system, system-ui, "Helvetica Neue", Helvetica, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-  --font-weight-regular: 300;
-  --font-weight-bold: 500;
+  --font-family: "Space Mono", -apple-system, system-ui, "Helvetica Neue", Helvetica, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
   --font-weight-black: 700;
 }
