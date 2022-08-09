@@ -37,6 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
   font-weight: var(--font-weight-bold);
   font-size: 1.25rem;
   line-height: 1.4;
@@ -48,15 +49,22 @@
   user-select: none;
 }
 
+.home__score:hover::before {
+  content: "?";
+  position: absolute;
+  top: 1rem;
+  right: -1.5rem;
+  font-size: 16em;
+  line-height: 0;
+  color: var(--color-primary);
+  z-index: -1;
+}
+
 .home__score span {
   font-size: 4rem;
   line-height: 0.25;
   margin-bottom: 2rem;
   will-change: color;
-}
-
-.home__score:hover span {
-  color: var(--color-body-alt);
 }
 
 .home__question {

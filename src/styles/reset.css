@@ -34,14 +34,23 @@ body {
 a,
 a:visited {
   display: inline-flex;
+  position: relative;
   color: inherit;
   font-style: italic;
-  text-decoration: none;
-}
-
-a:hover {
   text-decoration: underline;
   text-decoration-thickness: 4px;
+}
+
+a:hover::before {
+  content: "\21AF";
+  position: absolute;
+  top: 1.3rem;
+  right: -3.5rem;
+  font-size: 16em;
+  line-height: 0;
+  color: var(--color-background);
+  transform: rotate(-125deg);
+  z-index: -1;
 }
 
 ::selection {

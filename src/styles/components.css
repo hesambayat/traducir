@@ -3,6 +3,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   padding: 0.5rem 2rem;
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
@@ -14,8 +15,15 @@
   will-change: color;
 }
 
-.button:hover {
-  color: var(--color-body-alt);
+.button:hover::before {
+  content: "\27F6";
+  position: absolute;
+  top: 1.3rem;
+  right: -3.5rem;
+  font-size: 16em;
+  line-height: 0;
+  color: var(--color-primary);
+  z-index: -1;
 }
 
 /* Key */
