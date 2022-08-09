@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import reportWebVitals from './reportWebVitals'
-import './style'
+import './styles'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
