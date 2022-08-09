@@ -1,5 +1,27 @@
+/* HSL */
 :root {
-  /* Typography */
+  --color-body-h: 222;
+  --color-body-s: 19%;
+  --color-body-l: 18%;
+
+  --color-background-h: 223;
+  --color-background-s: 100%;
+  --color-background-l: 99%;
+
+  --color-primary-h: 147;
+  --color-primary-s: 100%;
+  --color-primary-l: 59%;
+}
+
+/* Colors */
+:root {
+  --color-body: hsl(var(--color-body-h), var(--color-body-s), var(--color-body-l));
+  --color-background: hsl(var(--color-background-h), var(--color-background-s), var(--color-background-l));
+  --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+}
+
+/* Typography */
+:root {
   --font-family: "Space Grotesk", -apple-system, system-ui, "Helvetica Neue", Helvetica, "Segoe UI", Roboto, "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
   --font-weight-regular: 300;
   --font-weight-bold: 500;

@@ -4,6 +4,7 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth;
   -ms-overflow-style: scrollbar;
+  background-color: var(--color-background);
 }
 
 *,
@@ -16,4 +17,5 @@ body {
   min-height: 100%;
   margin: 0;
   overflow-x: hidden;
+  color: var(--color-body);
 }

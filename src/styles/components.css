@@ -7,18 +7,20 @@
   padding: 0;
   line-height: 1;
   border: none;
-  background-color: #e0e3e4;
+  background-color: var(--color-body);
+  color: var(--color-background);
   text-transform: uppercase;
   appearance: none;
+  user-select: none;
   will-change: background-color, color;
 }
 
 .key:hover {
-  background-color: #c3c9cc;
+  background-color: hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) * 2));
 }
 
 .key--selected,
 .key--selected:hover {
-  background-color: #515e6e;
-  color: #f1f3f5;
+  background-color: var(--color-primary);
+  color: var(--color-body);
 }
