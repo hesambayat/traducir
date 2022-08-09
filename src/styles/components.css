@@ -53,5 +53,5 @@
   width: min(50vw, 60vh);
   height: min(50vw, 60vh);
   background-color: var(--color-body);
-  border: 1rem solid hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) / 2));
+  border: 1rem solid hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) / 4));
 }

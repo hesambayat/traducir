@@ -4,8 +4,8 @@ import { useModal } from '../../context/modal'
 import words from '../../words.json'
 
 export const Home = () => {
-  const { setModal } = useModal()
   const [source, action, { remaining, total }] = useTranslationSource(words)
+  const { setModal } = useModal()
   if (!source) {
     return (
       <div className="home">

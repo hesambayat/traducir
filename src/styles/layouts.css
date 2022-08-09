@@ -39,6 +39,11 @@
   font-size: 4rem;
   line-height: 0.25;
   margin-bottom: 2rem;
+  will-change: color;
+}
+
+.home__score:hover span {
+  color: var(--color-body-alt);
 }
 
 .home__question {
@@ -76,8 +81,13 @@
   z-index: 99;
 }
 
+.modal,
+.modal * {
+  cursor: url(../assets/cursor-disabled.svg), auto;
+}
+
 .modal__inner {
-  width: 80rem;
+  width: 74rem;
   max-width: 100%;
   padding: 5% 10%;
   margin-right: auto;
@@ -93,6 +103,6 @@
 }
 
 .modal__inner ol {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-style: italic;
 }

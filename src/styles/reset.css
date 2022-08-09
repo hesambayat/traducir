@@ -26,3 +26,12 @@ body {
 *:focus {
   outline: none;
 }
+
+* {
+  cursor: url(../assets/cursor.svg), auto;
+}
+
+::selection {
+  background-color: var(--color-background);
+  color: var(--color-body);
+}
