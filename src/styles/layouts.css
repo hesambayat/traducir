@@ -1,3 +1,16 @@
+
+/* Congrats */
+.congrats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 90vh;
+  padding-right: 10vw;
+  padding-left: 10vw;
+}
+
 /* Home */
 .home {
   position: relative;

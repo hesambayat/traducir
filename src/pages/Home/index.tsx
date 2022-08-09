@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useReducer } from 'react'
 import { Button, Keypad } from '../../componentes'
+import { Congrats } from '../../pages'
 import { useTranslationSource } from '../../hooks'
 import { useModal } from '../../context/modal'
 import words from '../../words.json'
@@ -42,11 +43,7 @@ export const Home = () => {
   }, [source, dispatch])
 
   if (!source) {
-    return (
-      <div className="home">
-        <h1>Congratulations!</h1>
-      </div>
-    )
+    return <Congrats />
   }
 
   return (

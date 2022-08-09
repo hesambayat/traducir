@@ -31,6 +31,19 @@ body {
   cursor: url(../assets/cursor.svg), auto;
 }
 
+a,
+a:visited {
+  display: inline-flex;
+  color: inherit;
+  font-style: italic;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 4px;
+}
+
 ::selection {
   background-color: var(--color-background);
   color: var(--color-body);
