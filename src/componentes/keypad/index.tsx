@@ -3,7 +3,8 @@ import { Move, SourceParsed } from '../../types'
 import Key from '../key'
 
 interface KeypadProps extends SourceParsed {
-  onDone?: () => void
+  highlights?: number[][]
+  onDone?: (map: number[][]) => void
 }
 
 interface KeypadReducerAction {
@@ -37,7 +38,7 @@ const reducer = (state: number[][], action: KeypadReducerAction) => {
   }
 }
 
-export const Keypad = ({ grid, map, onDone }: KeypadProps) => {
+export const Keypad = ({ grid, map, highlights, onDone }: KeypadProps) => {
   const [trace, dispatch] = useReducer(reducer, [])
   const columns = useMemo(() => {
     const [first] = grid
@@ -52,7 +53,7 @@ export const Keypad = ({ grid, map, onDone }: KeypadProps) => {
       map.find((check) => {
         const checkString = check.map(n => n.toString()).sort().toString()
         if (checkString === traceString) {
-          onDone && onDone()
+          onDone && onDone(check)
           return true
         }
         
@@ -70,8 +71,8 @@ export const Keypad = ({ grid, map, onDone }: KeypadProps) => {
     }
   }, [dispatch, trace])
   const isSelected = useCallback((target: KeypadReducerAction['target']) => {
-    return trace.map(n => n.toString()).includes(target.toString())
-  }, [trace])
+    return [...trace, ...(highlights || [])].map(n => n.toString()).includes(target.toString())
+  }, [trace, highlights])
 
   return (
     <div className="keypad" {...columns}>

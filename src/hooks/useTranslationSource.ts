@@ -33,7 +33,7 @@ export const parse = (source: SourceRaw): SourceParsed => ({
   map: normalize(source.word_locations),
 })
 
-export const reducer = (state: SourceParsed[], action: { type: string }) => {
+export const reducer = (state: SourceParsed[], action: { type: Action }) => {
   let next = [ ...state ]
   switch (action.type) {
     case Action.PUSH:
@@ -42,8 +42,9 @@ export const reducer = (state: SourceParsed[], action: { type: string }) => {
     case Action.SHIFT:
       next.shift()
       return next
+    default:
+      return state
   }
-  return state
 }
 
 export const useTranslationSource = (data: SourceRaw[]): [SourceParsed, Actions, Payload] => {
