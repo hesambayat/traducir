@@ -1,7 +1,7 @@
 interface ButtonProps {
-  disabled?: boolean;
-  label: string;
-  onClick?: () => void;
+  disabled?: boolean
+  label: string
+  onClick?: () => void
 }
 
 export const Button = ({ label, onClick, disabled = false }: ButtonProps) => 

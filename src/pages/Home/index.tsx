@@ -2,7 +2,8 @@ import { useCallback, useEffect, useReducer } from 'react'
 import { Button, Keypad } from '../../componentes'
 import { Congrats } from '../../pages'
 import { useTranslationSource } from '../../hooks'
-import { useModal } from '../../context/modal'
+import Score from './Score'
+import Question from './Question'
 import words from '../../words.json'
 
 enum Action {
@@ -24,7 +25,6 @@ const reducer = (state: number[][], action: { type: Action, payload?: number[][]
 export const Home = () => {
   const [source, action, { remaining, total }] = useTranslationSource(words)
   const [highlights, dispatch] = useReducer(reducer, [])
-  const { setModal } = useModal()
   const onDone = useCallback((selected: number[][]) => {
     const { map } = source
     const payload = [...highlights, ...selected].filter((n, i, s) => s.indexOf(n) === i)
@@ -48,13 +48,9 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <header>
-        <button className="home__score" onClick={setModal}>
-          <span>?</span> You got {total - remaining}/{total}
-        </button>
-      </header>
+      <Score total={total} remaining={remaining} />
       <main>
-        <h1 className="home__question">{source.map.length > 1 ? `What are ${source.map.length} Spanish words for` : `What's Spanish for`} <span>{source.origin}</span></h1>
+        <Question answers={source.map.length} origin={source.origin} />
         <Keypad {...source} highlights={highlights} onDone={onDone} />
         <div className="home__actions">
           <Button label="Skip &#10230;" disabled={remaining < 2} onClick={action.push} />

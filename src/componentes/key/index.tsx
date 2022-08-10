@@ -1,11 +1,11 @@
 import { CSSProperties, useMemo } from 'react'
 
 interface KeyProps {
-  label: string;
-  selected?: boolean;
-  onStart?: () => void;
-  onEnd?: () => void;
-  onMove?: () => void;
+  label: string
+  selected?: boolean
+  onStart?: () => void
+  onEnd?: () => void
+  onMove?: () => void
 }
 
 export const Key = ({ label, selected, onStart, onEnd, onMove }: KeyProps) => {
