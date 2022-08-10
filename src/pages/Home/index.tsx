@@ -54,7 +54,7 @@ export const Home = () => {
         <Question answers={source.map.length} origin={source.origin} transforming={status !== 'idle'} />
         <Keypad {...source} highlights={highlights} onDone={onDone} transforming={status} />
         <div className="home__actions">
-          <Button label="Skip &#10230;" disabled={remaining < 2 || status !== 'idle'} onClick={action.push} />
+          <Button label="Skip" icon="&#10230;" disabled={remaining < 2 || status !== 'idle'} onClick={action.push} />
         </div>
       </main>
       <Splash />

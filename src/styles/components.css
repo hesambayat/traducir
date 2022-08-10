@@ -15,8 +15,13 @@
   will-change: color;
 }
 
+.button::after {
+  content: attr(data-icon);
+  margin-left: 0.5em;
+}
+
 .button:hover::before {
-  content: "\27F6";
+  content: attr(data-icon);
   position: absolute;
   top: 1.3rem;
   right: -3.5rem;
