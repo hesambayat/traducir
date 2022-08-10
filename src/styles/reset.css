@@ -50,6 +50,7 @@ a:hover::before {
   line-height: 0;
   color: var(--color-background);
   transform: rotate(-125deg);
+  animation: fade 100ms reverse both;
   z-index: -1;
 }
 

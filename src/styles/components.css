@@ -23,7 +23,13 @@
   font-size: 16em;
   line-height: 0;
   color: var(--color-primary);
+  animation: fade 100ms reverse both;
   z-index: -1;
+}
+
+.button:disabled {
+  color: var(--color-body-alt);
+  pointer-events: none;
 }
 
 /* Key */
@@ -39,11 +45,20 @@
   background-color: var(--color-body);
   color: var(--color-background);
   text-transform: uppercase;
-  animation: fade 1.2s both reverse;
   animation-delay: var(--delay, 100ms);
   appearance: none;
   user-select: none;
   will-change: background-color, color;
+}
+
+.key--out {
+  animation: fade 200ms both;
+  animation-delay: var(--delay, 100ms);
+}
+
+.key--in {
+  animation: fade 200ms both reverse;
+  animation-delay: var(--delay, 100ms);
 }
 
 .key:hover {

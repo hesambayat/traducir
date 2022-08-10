@@ -23,7 +23,7 @@ const reducer = (state: number[][], action: { type: Action, payload?: number[][]
 }
 
 export const Home = () => {
-  const [source, action, { remaining, total }] = useTranslationSource(words)
+  const [source, action, { remaining, total, status }] = useTranslationSource(words)
   const [highlights, dispatch] = useReducer(reducer, [])
   const onDone = useCallback((selected: number[][]) => {
     const { map } = source
@@ -50,10 +50,10 @@ export const Home = () => {
     <div className="home">
       <Score total={total} remaining={remaining} />
       <main>
-        <Question answers={source.map.length} origin={source.origin} />
-        <Keypad {...source} highlights={highlights} onDone={onDone} />
+        <Question answers={source.map.length} origin={source.origin} transforming={status !== 'idle'} />
+        <Keypad {...source} highlights={highlights} onDone={onDone} transforming={status} />
         <div className="home__actions">
-          <Button label="Skip &#10230;" disabled={remaining < 2} onClick={action.push} />
+          <Button label="Skip &#10230;" disabled={remaining < 2 || status !== 'idle'} onClick={action.push} />
         </div>
       </main>
     </div>

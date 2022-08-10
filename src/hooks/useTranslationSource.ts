@@ -1,4 +1,4 @@
-import { useMemo, useReducer } from 'react'
+import { useEffect, useMemo, useReducer, useState } from 'react'
 import { SourceRaw, SourceParsed } from '../types'
 
 export enum Action {
@@ -14,6 +14,7 @@ interface Actions {
 interface Payload {
   remaining: number
   total: number
+  status: string
 }
 
 const normalize = (locations: string): SourceParsed['map'] => {
@@ -50,14 +51,32 @@ export const reducer = (state: SourceParsed[], action: { type: Action }) => {
 export const useTranslationSource = (data: SourceRaw[]): [SourceParsed, Actions, Payload] => {
   const source = useMemo(() => data.map(parse), [data])
   const [words, dispatch] = useReducer(reducer, source)
+  const [word, setWord] = useState(words[0])
+  const [status, setStatus] = useState('idle')
+
+  useEffect(() => {
+    setStatus('out')
+    const emit = setTimeout(() => {
+      const [word] = words
+      setWord(word)
+      setStatus('in')
+    }, 1200)
+    const stop = setTimeout(() => {
+      setStatus('idle')
+    }, 2600)
+    return () => {
+      clearTimeout(emit)
+      clearTimeout(stop)
+    }
+  }, [words, setWord, setStatus])
 
   return [
-    words[0], 
+    word, 
     { 
       push: () => dispatch({ type: Action.PUSH }),
       shift: () => dispatch({ type: Action.SHIFT }) 
     }, 
-    { remaining: words.length, total: source.length }
+    { remaining: words.length, total: source.length, status }
   ]
 }
 

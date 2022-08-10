@@ -3,6 +3,7 @@ import { Move, SourceParsed } from '../../types'
 import Key from '../key'
 
 interface KeypadProps extends SourceParsed {
+  transforming?: string
   highlights?: number[][]
   onDone?: (map: number[][]) => void
 }
@@ -38,7 +39,7 @@ const reducer = (state: number[][], action: KeypadReducerAction) => {
   }
 }
 
-export const Keypad = ({ origin, grid, map, highlights, onDone }: KeypadProps) => {
+export const Keypad = ({ origin, grid, map, highlights, transforming, onDone }: KeypadProps) => {
   
   const [trace, dispatch] = useReducer(reducer, [])
   const columns = useMemo(() => {
@@ -92,6 +93,7 @@ export const Keypad = ({ origin, grid, map, highlights, onDone }: KeypadProps) =
                 onStart={onStart(target)}
                 onEnd={onEnd(target)}
                 onMove={onMove(target)}
+                status={transforming}
               />
             )
           })
