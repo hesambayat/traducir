@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders home page feature / score should match the snapshot 1`] = `
+<DocumentFragment>
+  <header>
+    <button
+      class="home__score"
+    >
+      <span>
+        ?
+      </span>
+       You got 9/9
+    </button>
+  </header>
+</DocumentFragment>
+`;
