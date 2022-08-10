@@ -75,8 +75,15 @@
 .keypad {
   display: grid;
   grid-template-columns: repeat(var(--grid, 8), 1fr);
-  width: min(50vw, 60vh);
-  height: min(50vw, 60vh);
+  width: min(80vw, 70vh);
+  height: min(80vw, 70vh);
   background-color: var(--color-body);
   border: 1rem solid hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) / 4));
+}
+
+@media screen and (min-width: 992px) {
+  .keypad {
+    width: min(50vw, 60vh);
+    height: min(50vw, 60vh);
+  }
 }

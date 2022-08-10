@@ -67,6 +67,7 @@
 
 .home main {
   width: fit-content;
+  max-width: 100%;
 }
 
 .home__score {
