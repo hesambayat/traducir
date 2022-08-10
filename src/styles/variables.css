@@ -19,7 +19,6 @@
   --color-body-alt: hsl(var(--color-body-h), var(--color-body-s), calc(var(--color-body-l) * 2));
   --color-background: hsl(var(--color-background-h), var(--color-background-s), var(--color-background-l));
   --color-primary: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
-  /* --color-primary: #fc218b; */
 }
 
 /* Typography */

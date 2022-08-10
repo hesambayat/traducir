@@ -2,8 +2,9 @@ import { useCallback, useEffect, useReducer } from 'react'
 import { Button, Keypad } from '../../componentes'
 import { Congrats } from '../../pages'
 import { useTranslationSource } from '../../hooks'
-import Score from './Score'
 import Question from './Question'
+import Score from './Score'
+import Splash from './Splash'
 import words from '../../words.json'
 
 enum Action {
@@ -56,6 +57,7 @@ export const Home = () => {
           <Button label="Skip &#10230;" disabled={remaining < 2 || status !== 'idle'} onClick={action.push} />
         </div>
       </main>
+      <Splash />
     </div>
   )
 }

@@ -5,7 +5,7 @@ html {
   scroll-behavior: smooth;
   -ms-overflow-style: scrollbar;
   background-image: url(../assets/background.jpg);
-  background-color: var(--color-background);
+  background-color: var(--color-background) !important;
   background-size: cover;
   background-attachment: fixed;
 }
