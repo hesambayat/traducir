@@ -1,6 +1,14 @@
 # Traducir 
 Level up your Spanish Vocabulary with a word game.
 
+## What's next?
+The following are action items that I did not took due to the limited availability.
+
+- [ ] Refactor modal hardcoded content and pass on as a method
+- [ ] Refactor hardcoded how the app fetch the word source file 
+- [ ] Setup a unified store rather than keeping data via an hook
+- [ ] Move mouse event listeners one level up and add touch event listeners to support mobile
+
 ## Available Scripts
 
 In the project directory, you can run:
