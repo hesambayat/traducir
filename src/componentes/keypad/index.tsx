@@ -1,4 +1,4 @@
-import { CSSProperties, useCallback, useMemo, useReducer } from 'react'
+import { CSSProperties, useCallback, useEffect, useMemo, useReducer } from 'react'
 import { Move, SourceParsed } from '../../types'
 import Key from '../key'
 
@@ -38,7 +38,8 @@ const reducer = (state: number[][], action: KeypadReducerAction) => {
   }
 }
 
-export const Keypad = ({ grid, map, highlights, onDone }: KeypadProps) => {
+export const Keypad = ({ origin, grid, map, highlights, onDone }: KeypadProps) => {
+  
   const [trace, dispatch] = useReducer(reducer, [])
   const columns = useMemo(() => {
     const [first] = grid
@@ -73,6 +74,10 @@ export const Keypad = ({ grid, map, highlights, onDone }: KeypadProps) => {
   const isSelected = useCallback((target: KeypadReducerAction['target']) => {
     return [...trace, ...(highlights || [])].map(n => n.toString()).includes(target.toString())
   }, [trace, highlights])
+
+  useEffect(() => {
+    dispatch({ type: Move.UP, target: [] })
+  }, [origin])
 
   return (
     <div className="keypad" {...columns}>

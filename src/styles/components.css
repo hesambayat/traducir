@@ -39,6 +39,8 @@
   background-color: var(--color-body);
   color: var(--color-background);
   text-transform: uppercase;
+  animation: fade 1.2s both reverse;
+  animation-delay: var(--delay, 100ms);
   appearance: none;
   user-select: none;
   will-change: background-color, color;
