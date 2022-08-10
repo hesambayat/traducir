@@ -12,7 +12,12 @@ const Splash = () => {
   }, [setClassName])
 
   return (
-    <div className={className} />
+    <div className={className}>
+      <div className="clip">
+        <h1>Loading... <strong>Loading...</strong> <em>Loading...</em></h1>
+        <p>Loading... <strong>Loading...</strong> <em>Loading...</em></p>
+      </div>
+    </div>
   )
 }
 
