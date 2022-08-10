@@ -26,6 +26,12 @@ const reducer = (state: number[][], action: { type: Action, payload?: number[][]
 export const Home = () => {
   const [source, action, { remaining, total, status }] = useTranslationSource(words)
   const [highlights, dispatch] = useReducer(reducer, [])
+  const hint = useCallback(() => {
+    const [first] = source.map
+    const [hint] = first
+    const payload = [...highlights, hint].filter((n, i, s) => s.indexOf(n) === i)
+    dispatch({ type: Action.ADD, payload })
+  }, [source, highlights])
   const onDone = useCallback((selected: number[][]) => {
     const { map } = source
     const payload = [...highlights, ...selected].filter((n, i, s) => s.indexOf(n) === i)
@@ -54,6 +60,7 @@ export const Home = () => {
         <Question answers={source.map.length} origin={source.origin} transforming={status !== 'idle'} />
         <Keypad {...source} highlights={highlights} onDone={onDone} transforming={status} />
         <div className="home__actions">
+          <Button label="Hint" icon="&#10033;" disabled={remaining < 2 || status !== 'idle'} onClick={hint} />
           <Button label="Skip" icon="&#10230;" disabled={remaining < 2 || status !== 'idle'} onClick={action.push} />
         </div>
       </main>
